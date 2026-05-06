@@ -1,7 +1,5 @@
 'use strict';
 
-'use strict';
-
 class User {
     constructor(name, userName, email) {
         this.name = name;
@@ -91,7 +89,7 @@ postButton.addEventListener ('click', (e) => {
             </div>
             <span class="post-date">${postDate}</span>
         </div>
-        <p style="post-text">${textValue}</p>
+        <p class="post-text">${textValue}</p>
         ${imageHtml}
     `;
 
@@ -103,11 +101,13 @@ postButton.addEventListener ('click', (e) => {
 });
 
 async function fetchConnections() {
-   const URL = 'https://www.randomuser.me/api/?nat=CA&results=10&seed=same';
+   const URL = 'https://randomuser.me/api/?nat=CA&results=10&seed=same';
     
     try {
         const response = await fetch(URL);
         const data = await response.json();
+        console.log(data);
+        
         displayConnections(data.results);
     } catch (error) {
         console.error('Error loading users:', error);
