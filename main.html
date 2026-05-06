@@ -7,21 +7,19 @@
         <meta name="description" content="job-nest">
         <meta name="keywords" content="html, css, web, web development, MapBox, javascript">
         <link rel="icon" href="./assets/media/favicon.png" type="image/x-icon">
-        <script src="./assets/script/jobnest.js" type="module" defer></script>
+        <script src="./assets/script/main.js" type="module" defer></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap">
-        <link href="https://api.mapbox.com/mapbox-gl-js/v3.20.0/mapbox-gl.css" rel="stylesheet">
-        <script src="https://api.mapbox.com/mapbox-gl-js/v3.20.0/mapbox-gl.js"></script>
         <link rel="stylesheet" href="./assets/style/main.css" media="all">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>Home</title>
     </head>
     <body>
-        <div class="">
+        <div class="container">
             <header>
                 <div class="header-flex">
                     <h1>Job-Nest</h1>
                     <div class="search-box">
-                        <input type=text" placeholder="Search">
+                        <input type="text" placeholder="Search">
                         <button class="search-btn">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
@@ -32,15 +30,67 @@
                             <li><a href="#">Friends</a></li>
                             <li><a href="#">Groups</a></li>
                             <li><a href="#">Settings</a></li>
-                            <li><a href="#">LogOut</a></li>
+                            <li><a href="#" id="logout">LogOut</a></li>
                         </ul>
                     </nav>
+                     <div class="header-image">
+                        <img src="./assets/media/profile-image.jpg" alt="The Profile picture" id="user">
+                    </div>
                 </div>
             </header>
-            <main>
+            <main class="grid-container">
+                <section class="left-column">
+                    <section id="info">
+                        <div class="user-image">
+                            <img src="./assets/media/profile-image.jpg" alt="The Profile picture" class="user">
+                        </div>
+                        <h2>Ade Smith</h2>
+                        <p>Web Developer</p>
+                        <p>599 Connections</p>
+                        <p>10.7k Followers</p>
+                    </section>
+                </section>
+                <section class="center-column">
+                    <section class="feed-section"> 
+                        <form id="form"> 
+                            <textarea id="text" placeholder="What's new, Ade?"></textarea>
+                            <div class="post">
+                                <label for="file" class="label">
+                                    <i class="fa-regular fa-image"></i>
+                                    <input type="file" id="file" accept="image/*">
+                                    <span id="file-name"></span>
+                                </label>
+                                <button type="button" id="button">Post</button>
+                            </div>
+                            <div id="message" class="hide"></div>
+                        </form>
+                    </section>
+                    <section id="feed"></section>
+                </section>
+                <section class="right-column">
+                    <section class="recommendation">
+                        <div id="card">
+                            <h2>People you may know</h2>
+                            <div id="random-users"></div>
+                        </div>
+                    </section>
+                </section>
             </main>
+            <div id="modal" class="hide">
+                <div class="panel">
+                    <span id="close">&times;</span>
+                    <div id="modal-info"></div>
+                </div>
+            </div>
            <footer>
-            <p>&copy; .All right reserved.</p>
+            <div class="footer">
+                <p class="footer-copy">&copy;2026 Job-Nest. All rights reserved.</p>
+            </div>
+            <div id="social-media-btns">
+                <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
            </footer> 
       </div>
     </body>
