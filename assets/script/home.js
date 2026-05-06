@@ -22,8 +22,28 @@ fileInput.addEventListener('change', () => {
     }
 });
 
+userIcon.addEventListener('click', () => {
+    infoDiv.innerHTML = currentUser.getInfo();
+    modal.classList.remove('hide'); 
+});
+
+closeModal.addEventListener('click', () => {
+    modal.classList.add('hide'); 
+});
+
+postButton.addEventListener ('click', (e) => { 
+    e.preventDefault();
+
+     const textValue = textArea.value.trim();
+    const file = fileInput.files[0];
+
+    if (!textValue && !file) {
+        alert('Please add text or an image.');
+        return;
+    }
+
 postButton.addEventListener('click', () => {
-    const textValue = textArea.ariaValueMax.trim();
+    const textValue = textArea.trim();
     const file = fileInput.files[0];
 
     if(!textValue && !file) {
@@ -33,23 +53,23 @@ postButton.addEventListener('click', () => {
 
     const postDate = new Date().toLocaleDateString();
     const newPost = document.createElement('div');
-    newPost.classList.add('post-card');
+    newPost.classList.add('post');
 
     let imageHtml = '';
     if (file) {
         const imageUrl = URL.createObjectURL(file);
-        imageHtml = `<img src="${imageUrl}" class="post-image" style="width: 100%; margin-top: 10px;">`;
+        imageHtml = `<img src="${imageUrl}" class="post-image">`;
     }
 
     newPost.innerHTML = `
-        <div class="post-header" style="display: flex; gap: 10px; align-items: center;">
-            <img src="./assets/media/profile-image.jpg" width="40" height="40" style="border-radius: 50%;">
-            <div>
-                <strong>Ade Smith</strong><br>
-                <small>${postDate}</small>
+        <div class="post-header">
+           <div class="post-left">
+                <img src="./assets/media/user-image.JPG" class="post-img">
+                <span class="post-username">${currentUser.userName}</span>
             </div>
+            <span class="post-date">${postDate}</span>
         </div>
-        <p style="margin-top: 10px;">${textValue}</p>
+        <p style="post-text">${textValue}</p>
         ${imageHtml}
     `;
 
