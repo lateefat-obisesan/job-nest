@@ -59,3 +59,36 @@ postButton.addEventListener('click', () => {
     fileInput.value = '';
     fileNameDisplay.textContent = '';
 });
+
+async function fetchConnections() {
+    const url = 'https://randomuser.me/api/?results=10';
+    
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        displayConnections(data.results);
+    } catch (error) {
+        console.error('Error fetching users:', error);
+    }
+}
+
+function displayConnections(users) {
+    randomUsersContainer.innerHTML = '';
+
+    users.forEach(user => {
+        const userDiv = document.createElement('div');
+        userDiv.classList.add('connection-item');
+        userDiv.style.cssText = "display: flex; gap: 10px; align-items: center; margin-bottom: 15px;";
+        
+        userDiv.innerHTML = `
+            <img src="${user.picture.medium}" alt="user" style="border-radius: 50%; width: 50px;">
+            <div>
+                <p style="font-weight: 500; margin: 0;">${user.name.first} ${user.name.last}</p>
+                <p style="font-size: 0.8rem; color: gray; margin: 0;">${user.location.city}</p>
+            </div>
+        `;
+        randomUsersContainer.appendChild(userDiv);
+    });
+}
+
+fetchConnections();
