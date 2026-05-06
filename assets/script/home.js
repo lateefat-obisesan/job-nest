@@ -1,5 +1,30 @@
 'use strict';
 
+class User {
+    constructor(name, userName, email) {
+        this.name = name;
+        this.userName = userName;
+        this.email = email;
+    }
+
+    getInfo() {
+        return `
+        <div class="profile-card">
+            <img src="./assets/media/profile-image.jpg" class="user">
+            <h2>${this.name}</h2>
+            <p>@${this.userName}</p>
+            <p>${this.email}</p>
+        </div>
+        `;
+    }
+}
+
+const currentUser = new User(
+    "Ade Smith",
+    "adesmith",
+    "ade@email.com",
+);
+
 const postButton = document.getElementById('button');
 const textArea = document.getElementById('text');
 const fileInput = document.getElementById('file');
@@ -7,6 +32,10 @@ const fileNameDisplay = document.getElementById('file-name');
 const feed = document.getElementById('feed');
 const randomUsersContainer = document.getElementById('random-users');
 const logoutBtn= document.getElementById('logout');
+const userIcon = document.getElementById('user');
+const modal = document.getElementById('modal');
+const closeModal = document.getElementById('close');
+const infoDiv = document.getElementById('modal-info');
 
 logoutBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -42,15 +71,6 @@ postButton.addEventListener ('click', (e) => {
         return;
     }
 
-postButton.addEventListener('click', () => {
-    const textValue = textArea.trim();
-    const file = fileInput.files[0];
-
-    if(!textValue && !file) {
-        alert('Please add text or an image before posting.');
-        return;
-    }
-
     const postDate = new Date().toLocaleDateString();
     const newPost = document.createElement('div');
     newPost.classList.add('post');
@@ -64,7 +84,7 @@ postButton.addEventListener('click', () => {
     newPost.innerHTML = `
         <div class="post-header">
            <div class="post-left">
-                <img src="./assets/media/user-image.JPG" class="post-img">
+                <img src="./assets/media/profile-image.jpg" class="user">
                 <span class="post-username">${currentUser.userName}</span>
             </div>
             <span class="post-date">${postDate}</span>
@@ -81,14 +101,14 @@ postButton.addEventListener('click', () => {
 });
 
 async function fetchConnections() {
-    const url = 'https://randomuser.me/api/?results=10';
+   const URL = 'https://www.randomuser.me/api/?nat=CA&results=10&seed=same';
     
     try {
         const response = await fetch(url);
         const data = await response.json();
         displayConnections(data.results);
     } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error('Error loading users:', error);
     }
 }
 
@@ -98,13 +118,12 @@ function displayConnections(users) {
     users.forEach(user => {
         const userDiv = document.createElement('div');
         userDiv.classList.add('connection-item');
-        userDiv.style.cssText = "display: flex; gap: 10px; align-items: center; margin-bottom: 15px;";
         
         userDiv.innerHTML = `
-            <img src="${user.picture.medium}" alt="user" style="border-radius: 50%; width: 50px;">
-            <div>
-                <p style="font-weight: 500; margin: 0;">${user.name.first} ${user.name.last}</p>
-                <p style="font-size: 0.8rem; color: gray; margin: 0;">${user.location.city}</p>
+            <img src="${user.picture.medium}" alt="user">
+            <div class="user-info">
+                <p>${user.name.first} ${user.name.last}</p>
+                <p>${user.location.city}</p>
             </div>
         `;
         randomUsersContainer.appendChild(userDiv);
