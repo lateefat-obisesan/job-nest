@@ -106,7 +106,7 @@ async function fetchConnections() {
    const URL = 'https://www.randomuser.me/api/?nat=CA&results=10&seed=same';
     
     try {
-        const response = await fetch(url);
+        const response = await fetch(URL);
         const data = await response.json();
         displayConnections(data.results);
     } catch (error) {
