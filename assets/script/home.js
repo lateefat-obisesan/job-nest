@@ -12,4 +12,24 @@ logoutBtn.addEventListener('click', (e) => {
     e.preventDefault();
     localStorage.removeItem('isLoggedIn');
     window.location.href = 'index.html';
+});
+
+fileInput.addEventListener('change', () => {
+    if (fileInput.files.length > 0) {
+        fileNameDisplay.textContent = fileInput.files[0].name;
+    } else {
+        fileNameDisplay.textContent = '';
+    }
+});
+
+postButton.addEventListener('click', () => {
+    const textValue = textArea.ariaValueMax.trim();
+    const file = fileInput.files[0];
+
+    if(!textValue && !file) {
+        alert('Please add text or an image before posting.');
+        return;
+    }
+
+    const postDate = new Date().toLocaleDateString();
 })
