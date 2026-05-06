@@ -19,7 +19,7 @@
                 <div class="header-flex">
                     <h1>Job-Nest</h1>
                     <div class="search-box">
-                        <input type=text" placeholder="Search">
+                        <input type="text" placeholder="Search">
                         <button class="search-btn">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
@@ -33,47 +33,53 @@
                             <li><a href="#">LogOut</a></li>
                         </ul>
                     </nav>
-                     <div class="user-image">
+                     <div class="header-image">
                         <img src="./assets/media/profile-image.jpg" alt="The Profile picture" id="user">
                     </div>
                 </div>
             </header>
             <main class="grid-container">
-                <section id="info">
-                    <div class="user-image">
-                        <img src="./assets/media/profile-image.jpg" alt="The Profile picture" id="user">
-                    </div>
-                    <h2>Ade Smith</h2>
-                    <p>Web Developer</p>
-                    <p>599 Connections</p>
-                    <p>10.7k Followers</p>
-                </section>
-                <section class="feed-section">
-                    <form id="form"> 
-                        <textarea id="text" placeholder="What's new, Ade?"></textarea>
-                        <div class="post">
-                            <label for="file" class="label">
-                                <i class="fa-regular fa-image"></i>
-                                <input type="file" id="file" accept="image/*">
-                                <span id="file-name"></span>
-                            </label>
-                             <button type="button" id="button">Post</button>
+                <section class="left-column">
+                    <section id="info">
+                        <div class="user-image">
+                            <img src="./assets/media/profile-image.jpg" alt="The Profile picture" class="user">
                         </div>
-                        <div id="message" class="hide"></div>
-                    </form>
+                        <h2>Ade Smith</h2>
+                        <p>Web Developer</p>
+                        <p>599 Connections</p>
+                        <p>10.7k Followers</p>
+                    </section>
+                </section>
+                <section class="center-column">
+                    <section class="feed-section"> 
+                        <form id="form"> 
+                            <textarea id="text" placeholder="What's new, Ade?"></textarea>
+                            <div class="post">
+                                <label for="file" class="label">
+                                    <i class="fa-regular fa-image"></i>
+                                    <input type="file" id="file" accept="image/*">
+                                    <span id="file-name"></span>
+                                </label>
+                                <button type="button" id="button">Post</button>
+                            </div>
+                            <div id="message" class="hide"></div>
+                        </form>
+                    </section>
                 </section>
                 <section id="feed"></section>
-                <section class="recommendation">
-                    <div id="card">
-                        <h2>People you may know</h2>
-                        <div id="random-users"></div>
-                    </div>
+                <section class="right-column">
+                    <section class="recommendation">
+                        <div id="card">
+                            <h2>People you may know</h2>
+                            <div id="random-users"></div>
+                        </div>
+                    </section>
                 </section>
             </main>
             <div id="modal" class="hide">
                 <div class="panel">
                     <span id="close">&times;</span>
-                    <div id="info"></div>
+                    <div id="modal-info"></div>
                 </div>
             </div>
            <footer>
