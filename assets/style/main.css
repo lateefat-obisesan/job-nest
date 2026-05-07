@@ -188,3 +188,44 @@ textarea {
 .user-card:hover {
     background-color: var(--ice-white);
 }
+
+.user-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-info h4 {
+    font-size: 1.1rem;
+    color: var(--navy-primary);
+}
+
+.user-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+footer {
+    background: var(--navy-primary);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.social-btn {
+    color: white;
+    font-size: 2rem;
+    margin:  20px;
+    opacity: 0.8;
+}
+
+.footer-copy {
+    margin-top: 20px;
+    font-size: 1rem;
+    opacity: 0.6;
+}
+
+.hide {
+     display: none;
+}
