@@ -100,3 +100,91 @@ nav ul li a:hover {
     gap: 30px;
     padding:  20px;
 }
+#info {
+    text-align: center;
+}
+
+.user-image {
+    background: linear-gradient(to bottom, var(--navy-primary), var(--navy-accent));
+    height: 90px;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.user-image img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 5px solid var(--card-white);
+    position: absolute;
+    bottom: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+}
+
+#info h2 {
+    font-size: 1.6rem; 
+    color: var(--navy-primary);
+    margin-top: 15px;
+}
+
+#info p:first-of-type {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    padding: 0 15px 15px 15px;
+}
+
+.feed-section {
+    padding: 25px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 120px;
+    font-size: 1.2rem; 
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    font-family: inherit;
+    background: #fcfcfc;
+    margin-bottom: 20px;
+}
+
+#button {
+    background: var(--navy-primary);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 12px 35px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+#button:hover {
+    background: var(--navy-accent);
+    transform: scale(1.05);
+}
+
+.recommendation h2 {
+    font-size: 1.3rem;
+    color: var(--navy-primary);
+    padding: 20px;
+    background: #fafafa;
+    border-bottom: 1px solid var(--border);
+}
+
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+}
+
+.user-card:hover {
+    background-color: var(--ice-white);
+}
