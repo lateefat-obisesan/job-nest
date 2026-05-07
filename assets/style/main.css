@@ -65,3 +65,38 @@ h1 {
     font-size: 1rem;
     width: 100%;
 }
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--card-white);
+    text-decoration: underline;
+}
+
+.header-image img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--card-white);
+}
+
+.grid-container {
+    max-width: 1300px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 280px 1fr 320px; 
+    gap: 30px;
+    padding:  20px;
+}
