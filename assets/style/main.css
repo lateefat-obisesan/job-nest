@@ -1,4 +1,25 @@
 @charset "utf-8";
 @import"./reset.css";
 
+:root {
+    --navy-primary: #002244;  
+    --navy-accent: #004080;    
+    --ice-white: #f8fafc;       
+    --card-white: #ffffff;      
+    --text-dark: #1a1a1a;      
+    --text-muted: #64748b;   
+    --border: #e2e8f0;         
+    --font-main: 'Poppins', sans-serif;
+}
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--ice-white);
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 18px; 
+}
