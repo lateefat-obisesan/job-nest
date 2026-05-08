@@ -30,12 +30,7 @@ header {
 }
 
 .header-flex {
-    /*max-width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;*/
-    max-width: 1200px; 
+    max-width: 1400px; 
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -46,18 +41,19 @@ header {
 h1 {
     color: var(--card-white);
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    margin-right: 20px;
+    font-size: 2.5rem;
+    margin-right: 40px;
 }
 
 .search-box {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
-    padding: 8px 15px;
+    padding: 4px 12px;
     display: flex;
     align-items: center;
-    width: 300px;
+    width: 220px;
+    height: 35px;
 }
 
 .search-box input {
@@ -124,7 +120,6 @@ nav ul li a:hover {
 }
 
 #info {
-    /*text-align: center;*/
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -295,7 +290,7 @@ nav ul li a:hover {
 
 #file-name {
     font-size: 13px;
-    color: #811212;
+    color: #b8b2b2;
 }
 
 .recommendation h2 {
