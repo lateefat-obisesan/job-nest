@@ -60,10 +60,12 @@ closeModal.addEventListener('click', () => {
     modal.classList.add('hide'); 
 });
 
+let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
 postButton.addEventListener ('click', (e) => { 
     e.preventDefault();
 
-     const textValue = textArea.value.trim();
+    const textValue = textArea.value.trim();
     const file = fileInput.files[0];
 
     if (!textValue && !file) {
@@ -83,7 +85,7 @@ postButton.addEventListener ('click', (e) => {
 
     newPost.innerHTML = `
         <div class="post-header">
-           <div class="post-left">
+           <div class="post-user-info">
                 <img src="./assets/media/profile-image.jpg" class="user">
                 <span class="post-username">${currentUser.userName}</span>
             </div>
@@ -107,7 +109,6 @@ async function fetchConnections() {
         const response = await fetch(URL);
         const data = await response.json();
         console.log(data);
-        
         displayConnections(data.results);
     } catch (error) {
         console.error('Error loading users:', error);
@@ -116,7 +117,6 @@ async function fetchConnections() {
 
 function displayConnections(users) {
     randomUsersContainer.innerHTML = '';
-
     users.forEach(user => {
         const userDiv = document.createElement('div');
         userDiv.classList.add('connection-item');
@@ -126,6 +126,9 @@ function displayConnections(users) {
             <div class="user-info">
                 <p>${user.name.first} ${user.name.last}</p>
                 <p>${user.location.city}</p>
+            </div>
+            <div class="add-person-btn">
+                <i class="fa-solid fa-user-plus"></i>
             </div>
         `;
         randomUsersContainer.appendChild(userDiv);
