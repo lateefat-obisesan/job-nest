@@ -1,8 +1,6 @@
 @charset "utf-8";
 @import"./reset.css";
 
-/* Login Page */
-
 .login-page {
     min-height: 100vh;
     display: flex;
@@ -100,5 +98,13 @@
 .demo-login {
     margin-top: 18px;
     color: #666;
+    font-size: 14px;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 15px;
+    color: #0a66c2;
+    cursor: pointer;
     font-size: 14px;
 }
