@@ -1,10 +1,5 @@
 'use strict';
-
-localStorage.setItem("username", "ade");
-localStorage.setItem("password", "1234");
-
-'use strict';
-localStorage.setItem('username', 'admin');
+localStorage.setItem('username', 'adeSmith');
 localStorage.setItem('password', '1234');
 const loginForm = document.querySelector('#login-form');
 const username = document.querySelector('#username');
