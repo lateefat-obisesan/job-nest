@@ -18,13 +18,9 @@ loginForm.addEventListener('submit', function(event) {
         username.value === savedUsername &&
         password.value === savedPassword
     ) {
-
         localStorage.setItem('isLoggedIn', 'true');
-
         window.location.href = './main.html';
-
     } else {
-
         loginError.textContent =
         'Incorrect username or password';
     }
