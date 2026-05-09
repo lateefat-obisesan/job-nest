@@ -196,15 +196,6 @@ nav ul li a:hover {
     padding: 20px 0;
 }
 
-.feed-section {
-    background-color: #e3dfdf;
-    color: rgb(20, 20, 177);
-    margin: 20px auto;
-    padding: 15px;
-    border-radius: 10px;
-    max-width: 650px;
-}
-
 .stat-box {
     display: flex;
     justify-content: space-between;
@@ -234,14 +225,21 @@ nav ul li a:hover {
     font-weight: 700;
 }
 
+.feed-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--border);
+}
+
 #text {
     width: 100%;
-    background: transparent;
-    border: none;
-    color: #fff;
     font-size: 16px;
     outline: none; 
-    height: 80px;
+    height: 100px;
     resize: none; 
 }
 
@@ -249,27 +247,60 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 10px;
+    margin-top: 15px;
+}
+
+.post-container {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.post-user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.post-user-info .user {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-username {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--navy-primary);
+}
+
+.post-date {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+}
+
+.post-text {
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    line-height: 1.5;
 }
 
 .post-image {
     width: 100%;
-    max-height: 350px;
-    object-fit: cover;
     border-radius: 8px;
-    margin-top: 10px;
-}
-
-.post-actions {
-    display: flex;
-    gap: 25px;
-    margin-top: 12px;
-    color: var(--text-muted);
-    cursor: pointer;
-}
-
-.post-actions i:hover {
-    color: var(--navy-primary);
+    display: block;
+    border: 1px solid #eee;
 }
 
 #button {
@@ -313,6 +344,7 @@ nav ul li a:hover {
 #file-name {
     font-size: 13px;
     color: #b8b2b2;
+    font-weight: 500;
 }
 
 .recommendation h2 {
@@ -397,30 +429,41 @@ nav ul li a:hover {
 }
 
 footer {
-  padding: 20px 0;
-    margin-top: 40px;
     background: var(--navy-primary);
-    color: white;
+    padding: 30px 0;
+    margin-top: 60px;
+    color: #fff;
+    width: 100%;
 }
 
 .social-btn {
-    color: white;
+    color: #fff;
     font-size: 2rem;
-    margin:  20px;
+    transition: transform 0.3s, color 0.3s;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    color: var(--ice-white);
+    transform: translateY(-3px); 
+}
+
+#social-media-btns {
+    display: flex;
+    gap: 20px;
 }
 
 .footer-copy {
-    margin-top: 20px;
-    font-size: 1rem;
-    opacity: 0.6;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    margin: 0; 
 }
 
 .footer-content {
-    max-width: 1128px;
+   max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
-    padding: 0 24px;
-    color: var(--text-muted);
+    padding: 0 20px;
 }

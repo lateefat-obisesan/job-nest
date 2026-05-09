@@ -74,8 +74,8 @@ postButton.addEventListener ('click', (e) => {
     }
 
     const postDate = new Date().toLocaleDateString();
-    const newPost = document.createElement('div');
-    newPost.classList.add('post');
+    const postContainer = document.createElement('div');
+    postContainer.classList.add('post-container'); 
 
     let imageHtml = '';
     if (file) {
@@ -83,9 +83,9 @@ postButton.addEventListener ('click', (e) => {
         imageHtml = `<img src="${imageUrl}" class="post-image">`;
     }
 
-    newPost.innerHTML = `
+    postContainer.innerHTML = `
         <div class="post-header">
-           <div class="post-user-info">
+            <div class="post-user-info">
                 <img src="./assets/media/profile-image.jpg" class="user">
                 <span class="post-username">${currentUser.userName}</span>
             </div>
@@ -95,7 +95,7 @@ postButton.addEventListener ('click', (e) => {
         ${imageHtml}
     `;
 
-    feed.prepend(newPost);
+    feed.prepend(postContainer);
 
     textArea.value = '';
     fileInput.value = '';
