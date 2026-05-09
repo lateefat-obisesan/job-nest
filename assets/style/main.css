@@ -303,6 +303,40 @@ nav ul li a:hover {
     border: 1px solid #eee;
 }
 
+.post-actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.8rem;
+}
+
+.action-item:hover .fa-heart {
+    color: #e74c3c;
+}
+
+.action-item:hover .fa-comment {
+    color: #007bff; 
+}
+
+.action-item:hover  .fa-share-nodes {
+    color: #007bff; 
+}
+
+.action-item i {
+    font-size: 1.6rem;
+}
+
 #button {
     background-color: var( --navy-primary);
     color: #fff;

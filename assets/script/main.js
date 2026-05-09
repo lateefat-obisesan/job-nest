@@ -110,6 +110,20 @@ postButton.addEventListener ('click', (e) => {
         </div>
         <p class="post-text">${textValue}</p>
         ${imageHtml}
+        <div class="post-actions">
+            <div class="action-item">
+                <i class="fa-regular fa-heart"></i>
+                <span>Like</span>
+            </div>
+            <div class="action-item">
+                <i class="fa-regular fa-comment"></i>
+                <span>Comment</span>
+            </div>
+            <div class="action-item">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Share</span>
+            </div>
+        </div>
     `;
 
     feed.prepend(postContainer);
@@ -146,6 +160,20 @@ function renderPost(postData) {
         </div>
         <p class="post-text">${postData.text}</p>
         <img src="${postData.image}" class="post-image">
+        <div class="post-actions">
+            <div class="action-item">
+                <i class="fa-regular fa-heart"></i>
+                <span>Like</span>
+            </div>
+            <div class="action-item">
+                <i class="fa-regular fa-comment"></i>
+                <span>Comment</span>
+            </div>
+            <div class="action-item">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Share</span>
+            </div>
+        </div>
     `;
     feed.appendChild(postContainer);
 }
