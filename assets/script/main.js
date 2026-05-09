@@ -31,14 +31,14 @@ const permanentPosts = [
         username: "adesmith",
         date: "2026-05-08",
         text: "Hello everyone, I’m excited to officially join this community! I’m passionate about technology, learning new skills, and building meaningful connections with people who love innovation and growth. Currently exploring opportunities, improving my coding skills, and working toward becoming a stronger software developer every day. Let’s connect, learn, and grow together.",
-        image: "./assets/media/mountain-view.jpg" 
+        image: "./assets/media/mountain.jpg" 
     },
     {
         name: "Ade Smith",
         username: "adesmith",
         date: "2026-05-08",
         text: "So pretty!!",
-        image: "./assets/media/roses.jpg" 
+        image: "./assets/media/flower.jpg" 
     }
 ];
 
