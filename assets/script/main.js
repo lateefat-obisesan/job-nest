@@ -25,6 +25,23 @@ const currentUser = new User(
     "ade@email.com",
 );
 
+const permanentPosts = [
+    {
+        name: "Ade Smith",
+        username: "adesmith",
+        date: "2026-05-08",
+        text: "Hello everyone, I’m excited to officially join this community! I’m passionate about technology, learning new skills, and building meaningful connections with people who love innovation and growth. Currently exploring opportunities, improving my coding skills, and working toward becoming a stronger software developer every day. Let’s connect, learn, and grow together.",
+        image: "./assets/media/mountain-view.jpg" 
+    },
+    {
+        name: "Ade Smith",
+        username: "adesmith",
+        date: "2026-05-08",
+        text: "So pretty!!",
+        image: "./assets/media/roses.jpg" 
+    }
+];
+
 const postButton = document.getElementById('button');
 const textArea = document.getElementById('text');
 const fileInput = document.getElementById('file');
@@ -115,6 +132,24 @@ async function fetchConnections() {
     }
 }
 
+function renderPost(postData) {
+    const postContainer = document.createElement('div');
+    postContainer.classList.add('post-container'); 
+
+    postContainer.innerHTML = `
+        <div class="post-header">
+            <div class="post-user-info">
+                <img src="./assets/media/profile-image.jpg" class="user">
+                <span class="post-username">${postData.username}</span>
+            </div>
+            <span class="post-date">${postData.date}</span>
+        </div>
+        <p class="post-text">${postData.text}</p>
+        <img src="${postData.image}" class="post-image">
+    `;
+    feed.appendChild(postContainer);
+}
+
 function displayConnections(users) {
     randomUsersContainer.innerHTML = '';
     users.forEach(user => {
@@ -136,3 +171,7 @@ function displayConnections(users) {
 }
 
 fetchConnections();
+
+permanentPosts.forEach(post => {
+    renderPost(post);
+});
