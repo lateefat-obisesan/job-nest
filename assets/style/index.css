@@ -19,7 +19,8 @@
 body {
     font-family: var(--font-main);
     background-color: #f0f2f5;
-    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,70 +28,81 @@ body {
 
 .login-wrapper {
     display: flex;
-    width: 1000px;
-    height: 650px;
+    width: 1100px;
+    height: 720px;
     background-color: var(--card-white);
     border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .login-left {
+    flex: 1.1; 
     background-color: var(--navy-primary);
     display: flex;
-    flex-direction: column; /* Stack logo and image vertically */
+    position: relative;
+    overflow: hidden;
 }
 
 .login-logo {
+    position: absolute;
+    inset: 0;               
     display: flex;
-    flex-direction: column;
-    height: 100%; 
-    width: 100%;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
 }
 
 .login-logo h1 {
     font-family: 'Playfair Display', serif;
-    color: var(--card-white);
-    font-size: 3rem;
-    padding: 60px 40px 20px 40px; 
-    text-align: center;
+    color:#fff;
+    font-size: 4.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 .login-image {
     width: 100%;
-    order: 2; 
-    display: block;
+    height: 100%; 
+    object-fit: cover;
 }
 
 .login-right {
-    flex: 1.2;
-    padding: 60px 80px;
+   flex: 1.1;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column; 
+    padding: 60px 80px;
+}
+
+.login-content {
+    width: 100%;
 }
 
 .login-content h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-size: 3.7rem;
     color: var(--navy-primary);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .login-text {
     font-weight: 600;
     color: var(--text-dark);
+    font-size: 1.5rem;
+    margin-bottom: 8px;
 }
 
 .login-subtext {
-    font-size: 0.95rem;
+    font-size: 1.5rem;
     color: var(--text-muted);
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    line-height: 1.4;
 }
 
 #login-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 input {
@@ -104,34 +116,61 @@ button[type="submit"] {
     background-color: var(--navy-primary);
     color: white;
     border: none;
-    padding: 16px;
-    border-radius: 8px;
-    font-weight: 700;
+    padding: 10px 20px; 
+    border-radius: 6px;
+    font-weight: 600;
     cursor: pointer;
+    font-size: 1.5rem;
+    height: 45px;
+}
+
+button[type="submit"],
+.signup-btn {
+    flex: none; 
+    width: 140px;
+    display: flex;      
+    align-items: center; 
+    justify-content: center;
 }
 
 .signup-btn {
-    background: transparent;
+   background: transparent;
     border: 1px solid var(--navy-primary);
     color: var(--navy-primary);
-    padding: 16px;
-    border-radius: 8px;
-    font-weight: 700;
-    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
     cursor: pointer;
-    display: block;
-    margin: 20px auto 0 auto;
+    font-size: 1.5rem;
+    height: 45px;
+    margin: 0;
 }
 
 .account-text {
     text-align: center;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    color: var(--text-dark);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 .login-links {
-    margin-top: 40px;
+    margin-top: auto; 
     display: flex;
     justify-content: center;
-    gap: 15px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    gap: 20px;
+    font-size: 1.3rem;
+}
+
+.login-links a {
+    text-decoration: none;
+    color: var(--navy-primary);
+    font-weight: 500;
 }

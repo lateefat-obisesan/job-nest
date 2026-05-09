@@ -2,14 +2,11 @@
 
 Job-Nest is a social networking and job community web application built using HTML, CSS, and JavaScript. The project allows users to log in, create posts, upload images, view suggested connections, and manage their session using Local Storage.
 
----
 ## Collaborators:
 
-- Lateefat
+- Lateefat Obisesan
 - Roopjeet Kaur
 - Jaspreet Kaur
-
----
 
 ## Features
 
@@ -21,18 +18,14 @@ Job-Nest is a social networking and job community web application built using HT
 - Logout functionality
 - Responsive and modern user interface
 
----
-
 ## Technologies Used
 
 - HTML5
 - CSS3
-- JavaScript (ES6)
+- JavaScript
 - Local Storage
 - Fetch API
 - Font Awesome
-
----
 
 ## Default Login Credentials
 
@@ -42,10 +35,6 @@ adeSmith
 ### Password
 1234
 
----
-
 ## GitHub Repository
 
 Click [here](https://github.com/lateefat-obisesan/job-nest) to demo
-
----

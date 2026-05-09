@@ -25,6 +25,23 @@ const currentUser = new User(
     "ade@email.com",
 );
 
+const permanentPosts = [
+    {
+        name: "Ade Smith",
+        username: "adesmith",
+        date: "2026-05-08",
+        text: "Hello everyone, I’m excited to officially join this community! I’m passionate about technology, learning new skills, and building meaningful connections with people who love innovation and growth. Currently exploring opportunities, improving my coding skills, and working toward becoming a stronger software developer every day. Let’s connect, learn, and grow together.",
+        image: "./assets/media/mountain.jpg" 
+    },
+    {
+        name: "Ade Smith",
+        username: "adesmith",
+        date: "2026-05-08",
+        text: "So pretty!!",
+        image: "./assets/media/flower.jpg" 
+    }
+];
+
 const postButton = document.getElementById('button');
 const textArea = document.getElementById('text');
 const fileInput = document.getElementById('file');
@@ -60,10 +77,12 @@ closeModal.addEventListener('click', () => {
     modal.classList.add('hide'); 
 });
 
+let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
 postButton.addEventListener ('click', (e) => { 
     e.preventDefault();
 
-     const textValue = textArea.value.trim();
+    const textValue = textArea.value.trim();
     const file = fileInput.files[0];
 
     if (!textValue && !file) {
@@ -72,8 +91,8 @@ postButton.addEventListener ('click', (e) => {
     }
 
     const postDate = new Date().toLocaleDateString();
-    const newPost = document.createElement('div');
-    newPost.classList.add('post');
+    const postContainer = document.createElement('div');
+    postContainer.classList.add('post-container'); 
 
     let imageHtml = '';
     if (file) {
@@ -81,9 +100,9 @@ postButton.addEventListener ('click', (e) => {
         imageHtml = `<img src="${imageUrl}" class="post-image">`;
     }
 
-    newPost.innerHTML = `
+    postContainer.innerHTML = `
         <div class="post-header">
-           <div class="post-left">
+            <div class="post-user-info">
                 <img src="./assets/media/profile-image.jpg" class="user">
                 <span class="post-username">${currentUser.userName}</span>
             </div>
@@ -91,9 +110,23 @@ postButton.addEventListener ('click', (e) => {
         </div>
         <p class="post-text">${textValue}</p>
         ${imageHtml}
+        <div class="post-actions">
+            <div class="action-item">
+                <i class="fa-regular fa-heart"></i>
+                <span>Like</span>
+            </div>
+            <div class="action-item">
+                <i class="fa-regular fa-comment"></i>
+                <span>Comment</span>
+            </div>
+            <div class="action-item">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Share</span>
+            </div>
+        </div>
     `;
 
-    feed.prepend(newPost);
+    feed.prepend(postContainer);
 
     textArea.value = '';
     fileInput.value = '';
@@ -107,16 +140,46 @@ async function fetchConnections() {
         const response = await fetch(URL);
         const data = await response.json();
         console.log(data);
-        
         displayConnections(data.results);
     } catch (error) {
         console.error('Error loading users:', error);
     }
 }
 
+function renderPost(postData) {
+    const postContainer = document.createElement('div');
+    postContainer.classList.add('post-container'); 
+
+    postContainer.innerHTML = `
+        <div class="post-header">
+            <div class="post-user-info">
+                <img src="./assets/media/profile-image.jpg" class="user">
+                <span class="post-username">${postData.username}</span>
+            </div>
+            <span class="post-date">${postData.date}</span>
+        </div>
+        <p class="post-text">${postData.text}</p>
+        <img src="${postData.image}" class="post-image">
+        <div class="post-actions">
+            <div class="action-item">
+                <i class="fa-regular fa-heart"></i>
+                <span>Like</span>
+            </div>
+            <div class="action-item">
+                <i class="fa-regular fa-comment"></i>
+                <span>Comment</span>
+            </div>
+            <div class="action-item">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Share</span>
+            </div>
+        </div>
+    `;
+    feed.appendChild(postContainer);
+}
+
 function displayConnections(users) {
     randomUsersContainer.innerHTML = '';
-
     users.forEach(user => {
         const userDiv = document.createElement('div');
         userDiv.classList.add('connection-item');
@@ -127,9 +190,16 @@ function displayConnections(users) {
                 <p>${user.name.first} ${user.name.last}</p>
                 <p>${user.location.city}</p>
             </div>
+            <div class="add-person-btn">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
         `;
         randomUsersContainer.appendChild(userDiv);
     });
 }
 
 fetchConnections();
+
+permanentPosts.forEach(post => {
+    renderPost(post);
+});
