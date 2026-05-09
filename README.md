@@ -37,4 +37,4 @@ adeSmith
 
 ## GitHub Repository
 
-Click [here](https://github.com/lateefat-obisesan/job-nest) to demo
+Click [here]( https://lateefat-obisesan.github.io/job-nest/) to demo
